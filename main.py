@@ -15,6 +15,16 @@ if sys.platform == 'win32':
 TOKEN = os.getenv('TOKEN')
 CHAT_IDS = os.getenv('CHAT_IDS', '').split(',')
 
+def shorten_url(long_url):
+    try:
+        api_url = f"http://tinyurl.com/api-create.php?url={long_url}"
+        response = requests.get(api_url, timeout=5)
+        if response.status_code == 200:
+            return response.text
+        return long_url
+    except:
+        return long_url
+
 def get_quantum_news():
     rss_url = "https://news.google.com/rss/search?q=양자컴퓨터+OR+Quantum+Computing+when:1d&hl=ko&gl=KR&ceid=KR:ko"
     # headers = {"User-Agent": "Mozilla/5.0"}
