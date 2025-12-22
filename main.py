@@ -49,7 +49,7 @@ def get_quantum_news():
             # [수정] 제목(굵게)과 짧은 링크를 줄바꿈(\n)으로 구분하여 추가
             news_results.append(f"<b>{i}. {item.title.text}</b>\n🔗 {short_link}")
             
-        return "🚀 <b>오늘의 양자컴퓨터 최신 뉴스</b>\n\n" + "\n\n".join(news_results)
+        return "🚀 <b>오늘의 양자컴퓨터 주요 뉴스</b>\n\n" + "\n\n".join(news_results)
     except Exception as e:
         return f"스크래핑 중 오류 발생: {e}"
 
