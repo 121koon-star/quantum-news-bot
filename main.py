@@ -17,7 +17,9 @@ CHAT_IDS = os.getenv('CHAT_IDS', '').split(',')
 
 def shorten_url(long_url):
     try:
-        api_url = f"http://tinyurl.com/api-create.php?url={long_url}"
+        # api_url = f"http://tinyurl.com/api-create.php?url={long_url}"
+        # Is.gd API로 변경 (더 빠르고 중간 페이지가 없음)
+        api_url = f"https://is.gd/create.php?format=simple&url={long_url}"
         response = requests.get(api_url, timeout=5)
         if response.status_code == 200:
             return response.text
